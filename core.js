@@ -175,35 +175,68 @@ function refreshPerSec(delta){
 	var deltaEnergyDiff = energyps * delta;
 	energyLow = deltaEnergyDiff < 0 && (getResource(RESOURCE.Energy) <= 0 || getResource(RESOURCE.Energy) < deltaEnergyDiff);
 
-	// calculate multipliers (add prestige etc here)
+// CHEATED VERSION OVERIDE HERE
+
+	// // calculate multipliers (add prestige etc here)
+	// var resourceEfficiencyTech = Game.tech.getTechData('efficiencyResearch');
+	// var perSecondMultiplier = (1 + (resourceEfficiencyTech.current * 0.01)) * (1 + (Game.stargaze.entries.darkMatter.count * dmBoost));
+
+	// // Now we calculate the base per second
+	// uraniumps = grinder * grinderOutput * perSecondMultiplier;
+	// oilps = pump * pumpOutput * perSecondMultiplier;
+	// metalps = miner * minerOutput * perSecondMultiplier;
+	// gemps = gemMiner * gemMinerOutput * perSecondMultiplier;
+	// charcoalps = 0;
+	// woodps = woodcutter * woodcutterOutput * perSecondMultiplier;
+	// lunariteps = moonWorker * moonWorkerOutput * perSecondMultiplier;
+	// methaneps = vacuum * vacuumOutput * perSecondMultiplier;
+	// titaniumps = explorer * explorerOutput * perSecondMultiplier;
+	// goldps = droid * droidOutput * perSecondMultiplier;
+	// silverps = scout * scoutOutput * perSecondMultiplier;
+	// siliconps = blowtorch * blowtorchOutput * perSecondMultiplier;
+	// lavaps = crucible * crucibleOutput * perSecondMultiplier;
+	// hydrogenps = collector * collectorOutput * perSecondMultiplier;
+	// heliumps = drone * droneOutput * perSecondMultiplier;
+	// iceps = icePick * icePickOutput * perSecondMultiplier;
+	// plasmaps = 0;
+	// meteoriteps = 0;
+	// rocketFuelps = 0;
+	// antimatterps = 0;
+
+	// // Science
+	// var scienceEfficiencyTech = Game.tech.getTechData('scienceEfficiencyResearch');
+	// var scienceMultiplier = (1 + (scienceEfficiencyTech.current * 0.02)) * (1 + (Game.stargaze.entries.darkMatter.count * dmBoost));
+	// scienceps = ((lab*labOutput) + (labT2*labT2Output) + (labT3*labT3Output) + (labT4*labT4Output) + labT5*labT5Output) * scienceMultiplier;
+
+// calculate multipliers (add prestige etc here)
 	var resourceEfficiencyTech = Game.tech.getTechData('efficiencyResearch');
-	var perSecondMultiplier = (1 + (resourceEfficiencyTech.current * 0.01)) * (1 + (Game.stargaze.entries.darkMatter.count * dmBoost));
+	var perSecondMultiplier = 1 + (resourceEfficiencyTech.current * 999999999) + (Game.stargaze.entries.darkMatter.count * dmBoost);
 
 	// Now we calculate the base per second
-	uraniumps = grinder * grinderOutput * perSecondMultiplier;
-	oilps = pump * pumpOutput * perSecondMultiplier;
-	metalps = miner * minerOutput * perSecondMultiplier;
-	gemps = gemMiner * gemMinerOutput * perSecondMultiplier;
-	charcoalps = 0;
-	woodps = woodcutter * woodcutterOutput * perSecondMultiplier;
-	lunariteps = moonWorker * moonWorkerOutput * perSecondMultiplier;
-	methaneps = vacuum * vacuumOutput * perSecondMultiplier;
-	titaniumps = explorer * explorerOutput * perSecondMultiplier;
-	goldps = droid * droidOutput * perSecondMultiplier;
-	silverps = scout * scoutOutput * perSecondMultiplier;
-	siliconps = blowtorch * blowtorchOutput * perSecondMultiplier;
-	lavaps = crucible * crucibleOutput * perSecondMultiplier;
-	hydrogenps = collector * collectorOutput * perSecondMultiplier;
-	heliumps = drone * droneOutput * perSecondMultiplier;
-	iceps = icePick * icePickOutput * perSecondMultiplier;
-	plasmaps = 0;
-	meteoriteps = 0;
-	rocketFuelps = 0;
-	antimatterps = 0;
+	uraniumps = grinder * grinderOutput * perSecondMultiplier * 999999999;
+	oilps = pump * pumpOutput * perSecondMultiplier * 999999999;
+	metalps = miner * minerOutput * perSecondMultiplier * 999999999;
+	gemps = gemMiner * gemMinerOutput * perSecondMultiplier * 999999999;
+	charcoalps = 999999999;
+	woodps = woodcutter * woodcutterOutput * perSecondMultiplier * 999999999;
+	lunariteps = moonWorker * moonWorkerOutput * perSecondMultiplier * 999999999;
+	methaneps = vacuum * vacuumOutput * perSecondMultiplier * 999999999;
+	titaniumps = explorer * explorerOutput * perSecondMultiplier * 999999999;
+	goldps = droid * droidOutput * perSecondMultiplier * 999999999;
+	silverps = scout * scoutOutput * perSecondMultiplier * 999999999;
+	siliconps = blowtorch * blowtorchOutput * perSecondMultiplier * 999999999;
+	lavaps = crucible * crucibleOutput * perSecondMultiplier * 999999999;
+	hydrogenps = collector * collectorOutput * perSecondMultiplier * 999999999;
+	heliumps = drone * droneOutput * perSecondMultiplier * 999999999;
+	iceps = icePick * icePickOutput * perSecondMultiplier * 999999999;
+	plasmaps = 999999999;
+	meteoriteps = 999999999;
+	rocketFuelps = 999999999;
+	antimatterps = 999999999;
 
 	// Science
 	var scienceEfficiencyTech = Game.tech.getTechData('scienceEfficiencyResearch');
-	var scienceMultiplier = (1 + (scienceEfficiencyTech.current * 0.02)) * (1 + (Game.stargaze.entries.darkMatter.count * dmBoost));
+	var scienceMultiplier = 999999999 + (scienceEfficiencyTech.current * 0.02) + (Game.stargaze.entries.darkMatter.count * dmBoost);
 	scienceps = ((lab*labOutput) + (labT2*labT2Output) + (labT3*labT3Output) + (labT4*labT4Output) + labT5*labT5Output) * scienceMultiplier;
 
 	if (!energyLow && globalEnergyLock === false) {
